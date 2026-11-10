@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lê Đan Linh – Portfolio</title>
+<style>
+:root{--bg:#faf7f2;--card:#fff;--tx:#2b2622;--mu:#6d645b;--ac:#c2410c;--bd:#e6dfd5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1714;--card:#26211d;--tx:#f1ebe3;--mu:#b3a99d;--ac:#fb923c;--bd:#3a332c}}
+:root[data-theme="dark"]{--bg:#1a1714;--card:#26211d;--tx:#f1ebe3;--mu:#b3a99d;--ac:#fb923c;--bd:#3a332c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Georgia,"Times New Roman",serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--bd);z-index:5}
+nav{max-width:860px;margin:auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+nav b{margin-right:auto;font-size:18px}
+nav a{color:var(--mu);text-decoration:none;font:14px system-ui,sans-serif;padding:4px 0}
+nav a.on{color:var(--ac);border-bottom:2px solid var(--ac)}
+main{max-width:860px;margin:auto;padding:28px 16px 40px;min-height:60vh}
+h1{font-size:30px;line-height:1.25;margin:0 0 6px}
+h2{font-size:20px;margin:26px 0 8px;color:var(--ac)}
+.sub{color:var(--mu);font:14px system-ui,sans-serif;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.grid a{color:inherit;text-decoration:none}
+.grid .card{margin:0;height:100%}.grid .card:hover{border-color:var(--ac)}
+.grid small{color:var(--mu);font-family:system-ui,sans-serif}
+.hero{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.av{width:130px;height:130px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-size:48px;flex:none}
+.btns{display:flex;justify-content:space-between;gap:10px;margin-top:26px;flex-wrap:wrap}
+.btn{font:14px system-ui,sans-serif;color:var(--ac);border:1px solid var(--ac);border-radius:8px;padding:8px 14px;text-decoration:none}
+a{color:var(--ac)}
+ul{padding-left:20px}
+footer{border-top:1px solid var(--bd);color:var(--mu);font:13px/1.6 system-ui,sans-serif;text-align:center;padding:18px 16px}
+</style>
+</head>
+<body>
+<header><nav id="nav"></nav></header>
+<main id="app"></main>
+<footer>Lê Đan Linh · Mã SV: [MÃ SV] · Lớp: [LỚP] · Học phần: Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</footer>
+<script>
+const B=[
+["bai-1","Bài 1","Chương 1: Máy tính và các thiết bị ngoại vi","Thao tác cơ bản với tệp tin và thư mục","Thiết lập cấu trúc thư mục tối ưu và quy tắc đặt tên tệp.","Cấu trúc thư mục và quy tắc đặt tên tệp, kèm ảnh chụp minh họa."],
+["bai-2","Bài 2","Chương 2: Khai thác dữ liệu và thông tin","Tìm kiếm và đánh giá thông tin học thuật","Dùng toán tử tìm kiếm nâng cao và đánh giá độ tin cậy của nguồn.","Kết quả tìm kiếm bằng toán tử nâng cao và bảng đánh giá nguồn tin."],
+["bai-3","Bài 3","Chương 3: Tổng quan về trí tuệ nhân tạo","Viết Prompt hiệu quả cho các tác vụ học tập","Cải tiến prompt để AI trả lời chính xác, hữu ích hơn.","So sánh prompt ban đầu và prompt cải tiến cùng kết quả đầu ra từ AI."],
+["bai-4","Bài 4","Chương 4: Giao tiếp và hợp tác trong môi trường số","Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm","Phối hợp nhóm bằng công cụ quản lý dự án trực tuyến.","Minh chứng sử dụng công cụ quản lý dự án và cách phối hợp trực tuyến."],
+["bai-5","Bài 5","Chương 5: Sáng tạo nội dung số","Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung","Tạo nội dung số (hình ảnh, video, bài viết) với sự hỗ trợ của AI.","Sản phẩm nội dung số hoàn thiện có ghi rõ công cụ AI đã dùng."],
+["bai-6","Bài 6","Chương 6: An toàn và liêm chính học thuật","Sử dụng AI có trách nhiệm trong học tập và nghiên cứu","Xây dựng bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm.","Bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm."]];
+const P=[["gioi-thieu","Giới thiệu"],["du-an","Dự án"],["tong-ket","Tổng kết"]];
+const L=(h,t)=>`<a class="btn" href="#${h}">${t}</a>`;
+function view(k){
+ if(k==="du-an")return `<h1>Dự án</h1><div class="sub">Sáu bài tập thành phần của học phần</div><div class="grid">${B.map(b=>`<a href="#${b[0]}"><div class="card"><small>${b[1]} · ${b[2]}</small><h3 style="margin:6px 0">${b[3]}</h3><small>Xem chi tiết →</small></div></a>`).join("")}</div>`;
+ if(k==="tong-ket")return `<h1>Tổng kết</h1><div class="sub">Nhìn lại quá trình xây dựng Portfolio</div>
+ <h2>Trải nghiệm và cảm nhận</h2><div class="card">[Tự viết cảm nhận của bạn về quá trình làm Portfolio.]</div>
+ <h2>Kiến thức và kỹ năng quan trọng nhất</h2><div class="card">[Liệt kê 3–5 kiến thức/kỹ năng tâm đắc.]</div>
+ <h2>Điều tâm đắc nhất và thách thức</h2><div class="card">[Điều bạn tự hào nhất; khó khăn đã gặp và cách vượt qua.]</div>
+ <h2>Công cụ AI đã sử dụng</h2><div class="card">[Ghi rõ công cụ AI và mục đích sử dụng, ví dụ: Claude – gợi ý bố cục và viết mã website.]</div>
+ <h2>Các trang bài tập</h2><ul>${B.map(b=>`<li><a href="#${b[0]}">${b[1]} – ${b[3]}</a></li>`).join("")}</ul>`;
+ const i=B.findIndex(b=>b[0]===k);
+ if(i>=0){const b=B[i],pv=i?B[i-1][0]:"du-an",nx=i<5?B[i+1][0]:"tong-ket";
+ return `<div class="sub">${b[2]}</div><h1>${b[1]}: ${b[3]}</h1>
+ <h2>a) Mục tiêu bài tập</h2><div class="card">${b[4]}<br>Kỹ năng rèn luyện: [điền kỹ năng].</div>
+ <h2>b) Tóm tắt quá trình thực hiện</h2><div class="card"><ul><li>Các bước thực hiện: [điền]</li><li>Công cụ đã dùng (ghi rõ AI và mục đích nếu có): [điền]</li><li>Khó khăn và cách giải quyết: [điền]</li></ul></div>
+ <h2>c) Sản phẩm cuối cùng</h2><div class="card">${b[5]}<br><a href="#" onclick="return false">[Dán link doc/PDF/ảnh công khai tại đây]</a></div>
+ <div class="btns">${L("du-an","← Trang Dự án")}${L(nx,i<5?"Bài kế tiếp →":"Tổng kết →")}</div>`;}
+ return `<div class="hero"><div class="av">LĐ</div><div><h1>Lê Đan Linh</h1><div class="sub">Sinh viên · Trường ĐH Sư phạm Nghệ thuật Trung ương</div></div></div>
+ <h2>Thông tin cá nhân</h2><div class="card">Họ và tên: Lê Đan Linh<br>Ngành học: [điền ngành]<br>Sở thích: [điền sở thích]</div>
+ <h2>Mục tiêu học tập và định hướng phát triển</h2><div class="card">[Mục tiêu học tập và định hướng nghề nghiệp của bạn.]</div>
+ <h2>Mục tiêu của Portfolio</h2><div class="card">Thể hiện các kỹ năng số đã học và lưu trữ sản phẩm học tập để dễ truy cập, chia sẻ.</div>
+ <div class="btns"><span></span>${L("du-an","Xem các dự án →")}</div>`;
+}
+function go(){const k=(location.hash||"#gioi-thieu").slice(1);
+ const act=B.some(b=>b[0]===k)?"du-an":k;
+ document.getElementById("nav").innerHTML="<b>Đan Linh</b>"+P.map(p=>`<a href="#${p[0]}" class="${p[0]===act?"on":""}">${p[1]}</a>`).join("")+(act==="du-an"?B.map(b=>`<a href="#${b[0]}" class="${b[0]===k?"on":""}">${b[1].replace("Bài ","B")}</a>`).join(""):"");
+ document.getElementById("app").innerHTML=view(k);scrollTo(0,0);}
+addEventListener("hashchange",go);go();
+</script>
+</body>
+</html>
